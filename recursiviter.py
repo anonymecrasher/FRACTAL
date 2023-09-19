@@ -1,6 +1,7 @@
 ## importation des modules
 
 ## Déclaration des fonction
+
 def fonction_1(i=0):
     if i < 3:
         print(i)
@@ -8,6 +9,7 @@ def fonction_1(i=0):
 
 def fonction_4(i):
     if i > 0:
+        print(i)
         fonction_4(i-1)
 
 def somme(n):
@@ -26,7 +28,7 @@ def puissance(x, n):
 def main():
     print(somme(3))
     
+    
 ## Programme principal
 if __name__ == '__main__':
     main()
-    
