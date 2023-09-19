@@ -13,17 +13,17 @@ def fonction_4(i):
         fonction_4(i-1)
 
 def somme(n):
-    som = n
     if n > 0:
-        som += somme(n-1)
-    return som
+        n += somme(n-1)
+    return n
 
 def puissance(x, n):
+    if n == 0:
+        return 1
     n -= 1
-    pui = x
-    if n > 0:
-        pui *= puissance(x, n)
-    return pui
+    elif n > 0:
+        x *= puissance(x, n)
+    return x
 
 def main():
     print(somme(3))
