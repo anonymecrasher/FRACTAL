@@ -1,4 +1,6 @@
 ## importation des modules
+import time
+
 
 ## Déclaration des fonction
 
@@ -43,6 +45,7 @@ def puissance_recursiv_multiple(x,n):
         return puissance_recursiv_multiple(x,n/2) ** 2
     elif n % 2 == 1:
         return x * (puissance_recursiv_multiple(x,(n-1)/2) ** 2)
+
 def fibonacci(n):
     if n == 0:
         return 0
@@ -51,14 +54,30 @@ def fibonacci(n):
     else:
        return fibonacci(n-1) + fibonacci(n-2)
     
+def factoriel(n):
+    if n > 0:
+        return n * factoriel(n-1)
+    return 1
 
+def compte_chiffres(n):
+    if n <= 9:
+        return 1
+    else:
+        return 1 + compte_chiffres(n//10)
+        
 def main():
     print(somme(3))
-    print(puissance(2, 8))
-    print(puissance_base_multiple(2, 8))
-    print(puissance_recursiv_multiple(2, 8))
+    t1 = time.perf_counter()
+    puissance(2, 90)
+    t1 = time.perf_counter() - t1
+    t2 = time.perf_counter()
+    puissance_base_multiple(2, 90)
+    t2 = time.perf_counter() - t2
+    t3 = time.perf_counter()
+    puissance_recursiv_multiple(2, 90)
+    t3 = time.perf_counter() - t3
+    print('', t1,'\n',t2,'\n',t3)
     
 ## Programme principal
 if __name__ == '__main__':
     main()
-    
