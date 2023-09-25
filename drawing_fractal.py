@@ -1,6 +1,7 @@
+## importation des modules
 import turtle as t
 
-
+## Déclaration des fonction
 def arbre(n, l, An):
     if n == 0:
         t.forward(l)
@@ -52,29 +53,34 @@ def carre_fractal(n,l):
         t.forward(l/3)
         t.left(90)
         
-def courbe_de_koch(n, l):
+def koch(n, l):
+    print('test')
     if n == 0:
         t.forward(l)
-    elif n > 1:
-        courbe_de_koch(n-1, l/3)
-        t.Left(60)
-        courbe_de_koch(n-1, l/3)
-        t.right(120)
-        courbe_de_koch(n-1, l/3)
+    else:
+        koch(n-1, l//3)
         t.left(60)
-        courbe_de_koch(n-1, l/3)
+        koch(n-1, l//3)
+        t.right(120)
+        koch(n-1, l//3)
+        t.left(60)
+        koch(n-1, l//3)
         
-        
+def flocon(n, l):
+    for i in range(3):
+        koch(n, l)
+        t.right(120)
         
         
         
         
 def main():
     t.speed(0)
-    t.left(90)
-    carre_fractal(4,400)
-    t.done
+    #t.left(90)
+    flocon(5, 300)
+    t.done()
     
     
-
-main()
+## Programme principal
+if __name__ == '__main__':
+    main()
