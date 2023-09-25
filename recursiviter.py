@@ -53,6 +53,15 @@ def fibonacci(n):
         return 1
     else:
        return fibonacci(n-1) + fibonacci(n-2)
+def padovan(n):
+    if n == 0:
+        return 0
+    elif n == 1:
+        return 1
+    elif n == 2:
+        return 1
+    else:
+        return padovan(n-2)+padovan(n-3)
     
 def factoriel(n):
     if n > 0:
@@ -64,20 +73,22 @@ def compte_chiffres(n):
         return 1
     else:
         return 1 + compte_chiffres(n//10)
-        
+
+def rech_dico_recur(liste, el):
+    if len(liste_nombre) == 1:
+        return 0
+    else:
+        if liste[len(liste)//2] < el:
+            return len(liste)//2 + rech_dico_recur(liste[((len(liste)//2)+1):], el)
+        elif liste[len(liste)//2] > el:
+            return rech_dico_recur(liste[:((len(liste)//2)+1)], el)
+
+
+
 def main():
-    print(somme(3))
-    t1 = time.perf_counter()
-    puissance(2, 90)
-    t1 = time.perf_counter() - t1
-    t2 = time.perf_counter()
-    puissance_base_multiple(2, 90)
-    t2 = time.perf_counter() - t2
-    t3 = time.perf_counter()
-    puissance_recursiv_multiple(2, 90)
-    t3 = time.perf_counter() - t3
-    print('', t1,'\n',t2,'\n',t3)
+    pass
     
 ## Programme principal
 if __name__ == '__main__':
     main()
+    
